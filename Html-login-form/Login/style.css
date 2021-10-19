@@ -1,0 +1,65 @@
+body{
+	background: url(bg.jpg) center fixed;
+}
+.main-body{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+
+.fheader{
+	text-align: center;
+	color: white;
+	font-family: "",serif;
+}
+
+.overlay-box{
+	width: 60%;
+	height: 1400%;
+	display: block;
+	position: absolute;
+	left: 20%;
+	background-color: rgba(255,255,255,.2);
+}
+
+.form-in{
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translate(-80%,0);
+}
+
+.in-overlay{
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translate(-80%,0);
+}
+
+.lb{
+	font-size: 125%;
+}
+
+.inptxt{
+	width: 130%;
+	border-radius: 2px;
+}
+
+.terms{
+	color: black;
+}
+
+.big-btn{
+	font-size: 105%;
+	padding: 3% 3% 3% 3%;
+	cursor: pointer;
+}
+
+.radio{
+	cursor: pointer;
+}
+
+.mrgin-right-30{
+	margin-right: 60%;
+}

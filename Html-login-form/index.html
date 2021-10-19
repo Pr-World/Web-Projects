@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>PrProjects!</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class='main-body'>
+		<div class='form-start'>
+			<h1 class='fheader'>Registration Form!</h1>
+			<div class='overlay-box'>
+				<form class='form-in' action="show.html" method="post">
+					<label class='lb'>Name: </label>
+					<input class='inptxt' type="text" minlength="7" maxlength="50" name="" required>
+					<br>
+					<label class='lb'>Phone no:<br> [format: 10 digit number]</label>
+					<input class='inptxt' type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" name="" required>
+					<br><br>
+					<label class='lb'>Gender: </label><br>
+					<input type="radio" class='radio' name="gender" required>
+					<label class='lb'>Male </label><br>
+					<input type="radio" class='radio' name="gender" required>
+					<label class='lb'>Female </label>
+					<br><br>
+					<label class='lb'>Username: </label>
+					<input class='inptxt' type="text" name="" minlength="6" maxlength="50" required>
+					<label class='lb'>Password </label>
+					<input class='inptxt' type="password" minlength="8" maxlength="50" name="" required>
+					<br><br>
+					<input type="checkbox" name="" required>
+					You accept our <a href="#" class='terms'>Terms and conditions</a>
+					<br><br>
+					<input type="submit" class='big-btn' name="" value="Register">
+					<input type="reset" class='big-btn' name="" value="Reset">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -15,7 +15,7 @@ int main(){
 	printf("Length of string %d",sstrlen(a));
 	
 	//sstrfind
-	printf("First Space found in %d place\n\n",sstrfind(0,a," ")._str);
+	printf("First Space found in %d place\n\n",sstrfind(0,a," "));
 	
 	//sstrappend
 	printf("Appending 'Yeah so simple!': %s\n\n",sstrappend(a," Yeah! so simple!")._str);

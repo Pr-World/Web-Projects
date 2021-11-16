@@ -1,36 +1,72 @@
-#ifndef SSTRING_H_DEFINED
-#define SSTRING_H_DEFINED
 
-//define the maximum char limit here
-#define GLOBAL_MAX_CHAR_LIMIT 400
+#ifndef SSTRING_H_INCL
+//stdbool for sstrnum typedef
+#include<stdbool.h>
+#include<stddef.h>
+#define SSTRING_H_INCL
 
-#define NO_ERR 0
-#define GMCL_CORRUPT -10
-#define INVALID_ARGS -11
-#define GMCL_ERR -12
+#define _SSTRING_GLOBAL_MAX_CHAR_LIMIT 500
 
-typedef char * sstring;
+#define _SSTRING_NO_ERR -80
+#define _SSTRING_GMCL_CORRUPT -81
+#define _SSTRING_INVALID_ARGS -82
+#define _SSTRING_GMCL_ERR -83
+#define _SSTRING_EOF_ERR -84
+
+typedef char * sstrinp;
+typedef const char * sstrinpc;
+typedef int _SSTRING_ERRTYPE;
 
 typedef struct{
-	char _str[GLOBAL_MAX_CHAR_LIMIT];
-	int _err;
+	double _num;
+	bool is_num;
+	_SSTRING_ERRTYPE _err;
+}sstrnum;
+
+typedef struct{
+	char _str[_SSTRING_GLOBAL_MAX_CHAR_LIMIT];
+	_SSTRING_ERRTYPE _err;
 }sstrfunc;
 
 typedef struct{
 	char _char;
-	int _err;
+	_SSTRING_ERRTYPE _err;
 }charfunc;
 
-typedef sstrfunc sstrfuncerr;
+//sstr initial things
+struct sstr{
+	//initial things
+	sstrinp val;
+	int _err;
+};
 
-sstrfunc sstrappend(sstring _var1,sstring _var2);
-sstrfunc sstrinput();
-ssize_t sstrfind(size_t init,sstring _str,sstring _find);
-size_t sstrlen(sstring _str);
-sstrfunc ssetchar(sstring _str,ssize_t _pos,char _ch);
-sstrfunc ssubstr(sstring _str,ssize_t _pos,size_t _len);
-sstrfunc sstrreplace(sstring _str,sstring _find,sstring _repl);
-charfunc sgetchar(sstring _str,ssize_t _pos);
-void showerrs();
+
+
+//declaration of all member functions
+//declare the to-be-used function not original one!
+extern const struct sstrClass{
+	//member functions!!
+	struct sstr (*init)(void);
+	struct sstr (*newstr)(sstrinp _Str);
+	struct sstr (*assign)(sstrinp sa);
+	size_t (*len)(struct sstr _str);
+	struct sstr (*convC2S)(sstrinp _Buff);
+	_SSTRING_ERRTYPE (*convS2C)(struct sstr _str,sstrinp _Cstr,size_t _upto);
+	sstrnum (*tonum)(struct sstr _sstr);
+	struct sstr (*substr)(struct sstr _sstr,int _pos,size_t _len);
+	struct sstr (*append)(struct sstr _svar1,sstrinpc _var2);
+	struct sstr (*getinput)(void);
+	struct sstr (*getinputpass)(sstrinp show);
+	struct sstr (*setchar)(struct sstr _sstr,ssize_t _pos,char _ch);
+	void (*showerrs)(_SSTRING_ERRTYPE _err);
+	charfunc (*getchar)(struct sstr _sstr,ssize_t _pos);
+	ssize_t (*find)(size_t init,struct sstr _sstr,sstrinp _find);
+	struct sstr (*replace)(struct sstr _sStr, sstrinp _find, sstrinp _repl);
+	struct sstr (*refresh)(struct sstr a);
+	sstrinp (*val)(struct sstr a);
+} sstr;
+
+typedef sstrfunc sstrfuncerr;
+typedef struct sstr sstring;
 
 #endif

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Test</title>
+</head>
+
+<!-- Functions! -->
+
+<script>
+// Sleep function
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))
+
+// Writing animation function
+const WriteAnimation = async (text,id,speed) => {
+	var a = document.getElementById(id).innerHTML;
+	var b = "";
+	var c=0;
+	var j = 0;
+	for (var i = 0; i < text.length+2; i++) {
+		j++;
+		if (j==text.length+1) {
+			await sleep(speed);
+			a = a.substring(0,a.length-2);
+			document.getElementById(id).innerHTML=a;
+		}else{
+			a = a.substring(0,a.length-2);
+			await sleep(speed);
+			a+=text.charAt(j);
+			a+=' |';
+			document.getElementById(id).innerHTML=a;	
+		}
+	}
+}
+</script>
+
+<body>
+
+	<h1 class='t-head'>My Info!</h1>
+	<br>
+
+	<!-- Hidden texts for intro start -->
+	<p id='intro2txt' hidden>                                                      Hi! , I am Prakash Niroula studying in Shree Bir Ammarsingh Technical Secondary School! My Aim is to become a computer engineer. I am studying in class 9 in present learning all subjects. I have good skills in english typing , basic languages (c,c++,python,javascript,java,etc) and basic softwares (Ms word, Ms excel , etc!)
+	</p>
+	<p id='intro1txt' hidden>I am Prakash Niroula, From Birtamode - Jhapa!</p>
+
+	<!-- Hidden texts for intro end -->
+
+	<p>
+		<h2 class='p-head' id='intro1'></h2>
+		<h2 class='p-txt' id='intro2'></h2>
+	</p>
+
+	<script>
+		WriteAnimation(document.getElementById('intro1txt').innerHTML,'intro1',50);
+		WriteAnimation(document.getElementById('intro2txt').innerHTML,'intro2',50);
+	</script>
+</body>
+</html>

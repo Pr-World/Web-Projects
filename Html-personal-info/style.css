@@ -1,0 +1,28 @@
+body{
+	background-color: lightskyblue;
+}
+
+.t-head{
+	color: black;
+	text-align: center;
+	background-color: rgba(255,255,255,.2);
+	padding-top: 5px;
+	padding-bottom: 5px;
+	transition: .5s;
+}
+
+.t-head:hover{
+	color: white;
+	background-color: rgba(0,0,100,.2);
+}
+
+.p-head{
+	text-align: center;
+	color: darkslateblue;
+	font-family: "",cursive;
+	text-decoration: underline;
+}
+
+.p-txt{
+	text-align: center;
+}

@@ -175,8 +175,6 @@ int Num2Word(int _num){
 		tmp2 = GetDigit(_num,2)*1000000+GetDigit(_num,3)*100000+GetDigit(_num,4)*10000
 		+GetDigit(_num,5)*1000+GetDigit(_num,6)*100+GetDigit(_num,7)*10+GetDigit(_num,8);
 		
-		printf("\n %d",tmp2);
-		
 		if(GetDigit(_num,1)>2){
 			printf("%s %s %s ",_NUMWORDS[ToVal(tmp*10)],_NUMWORDS[GetDigit(_num,1)],_PLACEVAL[3]);
 		}else if(GetDigit(_num,1)==0){
@@ -185,7 +183,6 @@ int Num2Word(int _num){
 			printf("%s %s ",_NUMWORDS[tmp*10+GetDigit(_num,1)],_PLACEVAL[3]);
 		}
 		Num2Word(tmp2);
-		
 	}
 	
 }
